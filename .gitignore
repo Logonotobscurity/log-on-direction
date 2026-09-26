@@ -1,0 +1,16 @@
+node_modules
+.vercel
+.nitro
+.output
+dist
+.tanstack
+*.log
+.env
+.env.*
+!.env.example
+/tmp
+screenshots
+.grok
+AGENTS.md
+attachments
+artifacts/imagine_images

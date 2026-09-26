@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" role="img" aria-label="LOG_ON">
+  <rect width="16" height="16" fill="#09090A"/>
+  <!-- Geometric L/_ lockup. Integer coords so 16px tabs stay crisp. -->
+  <rect x="3" y="3" width="3" height="10" fill="#D4952A"/>
+  <rect x="3" y="10" width="6" height="3" fill="#D4952A"/>
+  <rect x="10" y="10" width="3" height="3" fill="#D4952A"/>
+</svg>

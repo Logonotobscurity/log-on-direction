@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Direction Problem — LOG_ON Mind Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=Fraunces:ital,opsz,wght@0,9..144,700;0,9..144,900;1,9..144,400&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --void:#09090A;
+  --surface:#111113;
+  --panel:#181820;
+  --border:#222228;
+  --mid:#38383F;
+  --muted:#5A5A65;
+  --body:#9A9AA8;
+  --head:#E8E8F0;
+  --white:#F4F4F8;
+  --amber:#D4952A;
+  --amber-dim:#7A5518;
+  --amber-pale:#2A2010;
+  --teal:#1E8C6A;
+  --teal-pale:#0E2018;
+  --red:#C03530;
+  --red-pale:#1E0F0E;
+  --purple:#7060C8;
+  --purple-pale:#18162A;
+  --gold-line:rgba(212,149,42,.25);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--void);
+  color:var(--body);
+  font-family:'Syne',sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+/* ── TOP BAR ── */
+.bar{
+  position:sticky;top:0;z-index:200;
+  background:rgba(9,9,10,.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  padding:0 32px;
+  height:48px;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.bar-brand{font-family:'JetBrains Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.25em;color:var(--amber)}
+.bar-label{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.12em}
+
+/* ── HERO TITLE ── */
+.hero{
+  text-align:center;
+  padding:64px 32px 48px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';
+  position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;
+  background:radial-gradient(ellipse at center,rgba(212,149,42,.06) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-eye{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;font-weight:700;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--amber);margin-bottom:20px;
+}
+.hero h1{
+  font-family:'Fraunces',serif;
+  font-size:clamp(2.4rem,6vw,5rem);
+  font-weight:900;line-height:1;
+  color:var(--white);
+  letter-spacing:-.02em;margin-bottom:16px;
+}
+.hero h1 em{font-style:italic;color:var(--amber)}
+.hero-sub{
+  font-family:'Fraunces',serif;
+  font-style:italic;font-size:1.1rem;
+  color:var(--muted);max-width:600px;margin:0 auto 32px;line-height:1.5;
+}
+.source-pills{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.pill{
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  padding:5px 12px;border:1px solid var(--border);
+  color:var(--muted);letter-spacing:.08em;border-radius:2px;
+}
+
+/* ── SYNTHESIS BANNER ── */
+.synthesis{
+  background:var(--amber-pale);
+  border-top:2px solid var(--amber);border-bottom:2px solid var(--amber);
+  padding:28px 48px;
+  display:flex;gap:48px;align-items:center;flex-wrap:wrap;
+}
+.synthesis-title{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:1.6rem;color:var(--amber);
+  min-width:260px;line-height:1.2;
+}
+.synthesis-body{
+  flex:1;font-size:.88rem;color:var(--body);line-height:1.7;max-width:640px;
+}
+.synthesis-body strong{color:var(--amber)}
+
+/* ── MIND MAP AREA ── */
+.map-area{padding:0 0 0}
+
+/* ── CENTRE NODE ── */
+.centre{
+  max-width:860px;margin:0 auto;
+  padding:60px 32px 0;
+  display:flex;flex-direction:column;align-items:center;
+}
+.centre-node{
+  background:var(--amber);
+  padding:28px 48px;
+  text-align:center;
+  position:relative;
+  clip-path:polygon(12px 0%,calc(100% - 12px) 0%,100% 50%,calc(100% - 12px) 100%,12px 100%,0% 50%);
+}
+.centre-node h2{
+  font-family:'Fraunces',serif;font-weight:900;font-size:1.5rem;
+  color:var(--void);line-height:1.1;
+}
+.centre-node p{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:rgba(9,9,10,.6);
+  letter-spacing:.15em;text-transform:uppercase;
+  margin-top:6px;
+}
+
+/* ── VERT CONNECTOR ── */
+.vcon{width:2px;height:32px;background:linear-gradient(var(--amber),var(--border));margin:0 auto}
+
+/* ── THREE COLUMNS: SOURCE NODES ── */
+.source-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:2px;
+  max-width:1200px;margin:0 auto;
+  padding:0 24px;
+}
+.source-connector-row{
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:2px;
+  max-width:1200px;margin:0 auto;
+  padding:0 24px;
+}
+.scon{
+  display:flex;flex-direction:column;align-items:center;
+  padding:0 40px;
+}
+.scon-line{width:2px;height:28px;}
+.scon-dot{width:8px;height:8px;border-radius:50%;margin:-4px auto 0}
+
+.source-node{
+  padding:24px 24px 20px;
+  position:relative;
+}
+.source-node.williams{background:var(--teal-pale);border-top:3px solid var(--teal)}
+.source-node.derosiaux{background:var(--purple-pale);border-top:3px solid var(--purple)}
+.source-node.koe{background:var(--red-pale);border-top:3px solid var(--red)}
+
+.sn-tag{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.williams .sn-tag{color:var(--teal)}
+.derosiaux .sn-tag{color:var(--purple)}
+.koe .sn-tag{color:var(--red)}
+
+.sn-title{
+  font-family:'Fraunces',serif;font-style:italic;
+  font-size:1.05rem;color:var(--head);line-height:1.3;
+  margin-bottom:14px;
+}
+.sn-core{
+  font-size:.82rem;color:var(--body);line-height:1.65;
+  margin-bottom:14px;border-bottom:1px solid var(--border);
+  padding-bottom:14px;
+}
+.sn-concept-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;font-weight:700;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);
+  margin-bottom:6px;
+}
+.sn-concept{
+  font-size:.85rem;font-weight:700;
+  line-height:1.3;
+}
+.williams .sn-concept{color:var(--teal)}
+.derosiaux .sn-concept{color:var(--purple)}
+.koe .sn-concept{color:var(--red)}
+
+/* ── THREAD GRID: synthesis threads ── */
+.thread-section{
+  max-width:1200px;margin:0 auto;padding:48px 24px 0;
+}
+.thread-header{
+  display:flex;align-items:center;gap:16px;
+  margin-bottom:28px;
+}
+.thread-header-line{flex:1;height:1px;background:linear-gradient(90deg,var(--amber),transparent)}
+.thread-header h3{
+  font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--amber);
+  white-space:nowrap;
+}
+
+.thread-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-bottom:2px;
+}
+.thread{
+  padding:22px 22px 18px;
+  background:var(--surface);
+  border-top:2px solid var(--amber-dim);
+  position:relative;
+}
+.thread-n{
+  font-family:'Fraunces',serif;font-size:2.5rem;font-weight:900;
+  color:var(--border);line-height:1;
+  position:absolute;top:14px;right:18px;
+}
+.thread-label{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:10px;
+}
+.thread h4{
+  font-family:'Fraunces',serif;font-size:1rem;color:var(--head);
+  line-height:1.3;margin-bottom:10px;
+}
+.thread p{font-size:.82rem;color:var(--body);line-height:1.65}
+.thread p strong{color:var(--head)}
+
+/* ── RECOMMENDATION SECTION ── */
+.rec-section{
+  background:var(--panel);
+  border-top:1px solid var(--border);
+  margin-top:48px;
+  padding:56px 24px;
+}
+.rec-inner{max-width:1200px;margin:0 auto}
+
+.rec-heading{
+  text-align:center;margin-bottom:48px;
+}
+.rec-heading .eye{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.35em;text-transform:uppercase;color:var(--amber);
+  margin-bottom:16px;
+}
+.rec-heading h2{
+  font-family:'Fraunces',serif;font-size:clamp(1.8rem,4vw,3.2rem);
+  font-weight:900;color:var(--white);line-height:1.05;
+}
+.rec-heading h2 em{font-style:italic;color:var(--amber)}
+.rec-heading p{
+  font-size:.95rem;color:var(--muted);max-width:520px;
+  margin:12px auto 0;font-style:italic;
+  font-family:'Fraunces',serif;
+}
+
+.rec-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:2px;
+  margin-bottom:2px;
+}
+.rec{
+  padding:28px 24px;background:var(--surface);
+  border-left:3px solid var(--amber);
+  position:relative;overflow:hidden;
+}
+.rec::before{
+  content:attr(data-n);
+  font-family:'Fraunces',serif;font-size:5rem;font-weight:900;
+  color:var(--border);
+  position:absolute;bottom:-10px;right:12px;
+  line-height:1;
+  pointer-events:none;
+}
+.rec-domain{
+  font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;
+  letter-spacing:.3em;text-transform:uppercase;color:var(--amber-dim);
+  margin-bottom:10px;
+}
+.rec h4{
+  font-family:'Fraunces',serif;font-size:1.05rem;color:var(--head);
+  line-height:1.25;margin-bottom:12px;font-weight:700;
+}
+.rec p{font-size:.82rem;color:var(--body);line-height:1.65;margin-bottom:10px}
+.rec p strong{color:var(--amber)}
+.rec p:last-child{margin-bottom:0}
+
+.rec-action{
+  margin-top:14px;
+  padding:10px 14px;
+  background:var(--amber-pale);
+  border-left:2px solid var(--amber);
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:var(--amber);
+  line-height:1.5;letter-spacing:.04em;
+}
+
+/* ── FULL ROW REC ── */
+.rec-full{
+  padding:32px 32px;background:var(--void);
+  border:1px solid var(--amber-dim);
+  border-left:4px solid var(--amber);
+  margin-top:2px;
+}
+.rec-full h4{
+  font-family:'Fraunces',serif;font-size:1.3rem;color:var(--white);
+  font-weight:900;margin-bottom:16px;
+}
+.rec-full h4 em{font-style:italic;color:var(--amber)}
+.rf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.rf-item{}
+.rf-item strong{
+  font-family:'JetBrains Mono',monospace;font-size:10px;font-weight:700;
+  letter-spacing:.15em;text-transform:uppercase;color:var(--amber);
+  display:block;margin-bottom:8px;
+}
+.rf-item p{font-size:.82rem;color:var(--body);line-height:1.65}
+
+/* ── FOOTER ── */
+.foot{
+  background:var(--void);
+  border-top:2px solid var(--amber);
+  padding:32px;
+  display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;
+}
+.foot-brand{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;letter-spacing:.25em;color:var(--amber)}
+.foot-text{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--muted);letter-spacing:.1em}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+.hero>*{animation:fadeUp .6s ease both}
+.hero-eye{animation-delay:.05s}
+.hero h1{animation-delay:.2s}
+.hero-sub{animation-delay:.35s}
+.source-pills{animation-delay:.5s}
+
+/* ── RESPONSIVE ── */
+@media(max-width:800px){
+  .source-grid,.thread-grid,.rec-grid,.rf-grid{grid-template-columns:1fr}
+  .source-connector-row{grid-template-columns:1fr;display:none}
+  .synthesis{padding:24px}
+  .bar{padding:0 16px}
+  .hero{padding:48px 16px 36px}
+  .foot{padding:20px 16px}
+  .rec-full{padding:24px 20px}
+}
+</style>
+</head>
+<body>
+
+<!-- BAR -->
+<header class="bar">
+  <span class="bar-brand">LOG_ON</span>
+  <span class="bar-label">Mind Map &nbsp;·&nbsp; 3-Source Synthesis &nbsp;·&nbsp; April 2026</span>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eye">Cross-Source Analysis &nbsp;·&nbsp; LOG_ON Intelligence Review</div>
+  <h1>The <em>Direction</em> Problem</h1>
+  <p class="hero-sub">Three writers. Three domains. One failure mode: execution running ahead of understanding, with AI making the error faster and more expensive.</p>
+  <div class="source-pills">
+    <span class="pill">Williams · PM Researcher · Systems Thinking</span>
+    <span class="pill">Derosiaux · Technical Executive · Agent Tooling</span>
+    <span class="pill">Koe · future/proof · One-Person Business</span>
+    <span class="pill">LOG_ON · Prior Work · AI Architecture &amp; African Cognitive Sovereignty</span>
+  </div>
+</section>
+
+<!-- SYNTHESIS BANNER -->
+<div class="synthesis">
+  <div class="synthesis-title">The thread<br/>across all three</div>
+  <div class="synthesis-body">
+    Williams says: <strong>Systems thinking must precede analytical execution</strong> or you get flawless work on the wrong outcome. Derosiaux says: <strong>The agent's epistemic environment must be designed before tasks are assigned</strong> or the agent executes competently in the wrong direction. Koe says: <strong>AI is leverage for skilled humans — it amplifies direction, not replaces it.</strong> "The person directing it is where the magic lies." All three are observing the same failure at different scales. The name for it is the Direction Problem: every system, human or AI, executes toward whatever target it has been handed — and most practitioners hand it the wrong target first.
+  </div>
+</div>
+
+<!-- CENTRE NODE -->
+<div class="map-area">
+<div class="centre">
+  <div class="centre-node">
+    <h2>THE DIRECTION PROBLEM</h2>
+    <p>Execution amplified by AI · Wrong target · Same failure · Three domains</p>
+  </div>
+  <div class="vcon"></div>
+</div>
+
+<!-- SOURCE CONNECTORS -->
+<div class="source-connector-row">
+  <div class="scon">
+    <div class="scon-line" style="background:linear-gradient(var(--border),var(--teal))"></div>
+    <div class="scon-dot" style="background:var(--teal)"></div>
+  </div>
+  <div class="scon">
+    <div class="scon-line" style="background:linear-gradient(var(--border),var(--purple))"></div>
+    <div class="scon-dot" style="background:var(--purple)"></div>
+  </div>
+  <div class="scon">
+    <div class="scon-line" style="background:linear-gradient(var(--border),var(--red))"></div>
+    <div class="scon-dot" style="background:var(--red)"></div>
+  </div>
+</div>
+
+<!-- SOURCE NODES -->
+<div class="source-grid">
+
+  <div class="source-node williams">
+    <div class="sn-tag">Source 01 · Williams · PM Researcher · Aug 2025</div>
+    <div class="sn-title">"Why Systems Thinking Must Come Before Analytical Thinking"</div>
+    <div class="sn-core">
+      Most PMs open Gantt charts before understanding the system they're managing. The LFA framework fixes this by starting from Impact and working backward: Impact → Outcomes → Outputs → Inputs. "Execution without systems is efficiency without impact." 864 likes. 118 restacks.
+    </div>
+    <div class="sn-concept-label">Core Concept</div>
+    <div class="sn-concept">Systems layer must exist before the analytical layer can function correctly.</div>
+  </div>
+
+  <div class="source-node derosiaux">
+    <div class="sn-tag">Source 02 · Derosiaux · Technical Executive · Mar 2026</div>
+    <div class="sn-title">"Claude Code told me what tools it needs to work faster."</div>
+    <div class="sn-core">
+      Claude Code ran 6 parallel subagents to audit its own environment — PATH, Homebrew, MCP servers, shell aliases. Missing: ripgrep, fd, DuckDB, semgrep. Sigl's insight from comments: highest-impact change isn't PATH, it's the constraints file. "We onboard human engineers carefully. We hand AI a bare terminal."
+    </div>
+    <div class="sn-concept-label">Core Concept</div>
+    <div class="sn-concept">Epistemic environment (cognitive tooling + constraints) shapes what an agent can think — not just how fast it executes.</div>
+  </div>
+
+  <div class="source-node koe">
+    <div class="sn-tag">Source 03 · Koe · future/proof · Mar 2026</div>
+    <div class="sn-title">"How to start a one-person business in 2026 (things changed)"</div>
+    <div class="sn-core">
+      Everything you did before + AI for speed, quality, iteration. Brand + Content + Offer is still the frame. Lower barrier, higher skill ceiling. "Most people are burning money watching AI produce something mediocre because they don't know what good looks like." Trust is the moat. Direction is the leverage.
+    </div>
+    <div class="sn-concept-label">Core Concept</div>
+    <div class="sn-concept">"AI, frankly, isn't good enough on its own. The person directing it is where the magic lies."</div>
+  </div>
+
+</div>
+
+<!-- SYNTHESIS THREADS -->
+<div class="thread-section">
+  <div class="thread-header">
+    <div class="thread-header-line"></div>
+    <h3>6 Synthesis Threads</h3>
+    <div class="thread-header-line" style="background:linear-gradient(transparent,var(--amber))"></div>
+  </div>
+
+  <div class="thread-grid">
+    <div class="thread">
+      <div class="thread-n">1</div>
+      <div class="thread-label">The Amplification Law</div>
+      <h4>AI amplifies whatever direction it's given — correct or wrong, equally.</h4>
+      <p>Williams: Analytical execution amplifies the outcome of the systems layer beneath it. Derosiaux: Better tools amplify whatever the agent has been configured to do. Koe: <strong>"AI works best when you know what you want."</strong> All three confirm: the intelligence of the AI is not the constraint. The quality of the direction is.</p>
+    </div>
+    <div class="thread">
+      <div class="thread-n">2</div>
+      <div class="thread-label">Trust as Architecture</div>
+      <h4>Trust is the only durable moat in a world where execution is commoditised.</h4>
+      <p>Koe names it directly: <strong>"Trust is a moat in the age of AI."</strong> Williams' LFA framework is a trust-building architecture — it creates a documented logic of accountability. Derosiaux's CLAUDE.md-as-constraint-document is a trust architecture for the agent — it defines what the agent can be relied upon not to violate. Same insight, three forms.</p>
+    </div>
+    <div class="thread">
+      <div class="thread-n">3</div>
+      <div class="thread-label">The Skill Ceiling Rises</div>
+      <h4>Lower barrier to entry. Higher skill ceiling. The gap between practitioners widens.</h4>
+      <p>Koe: <strong>"The barrier of entry is lower, but the skill cap is higher."</strong> Williams: Most teams never learn systems thinking — they default to analytical tools. Derosiaux: Most developers never design the agent's epistemic environment — they hand it a bare terminal. AI democratises access to execution. It concentrates advantage among the skilled few who direct that execution correctly.</p>
+    </div>
+    <div class="thread">
+      <div class="thread-n">4</div>
+      <div class="thread-label">Iteration is the Architecture</div>
+      <h4>One pass is never the answer. The loop is the product.</h4>
+      <p>Koe: <strong>"Running through this once isn't going to instantly make you successful."</strong> Williams: LFA requires revisiting assumptions when outcomes don't match. Derosiaux's commenter Sigl: update CLAUDE.md when the agent violates architecture — close the loop at the systems level, not the prompt level. All three: the iteration loop IS the system. Treating it as a flaw is the mistake.</p>
+    </div>
+    <div class="thread">
+      <div class="thread-n">5</div>
+      <div class="thread-label">Cognitive vs. Execution Layer</div>
+      <h4>Tools that change what you can think are categorically different from tools that change how fast you execute.</h4>
+      <p>Derosiaux names this implicitly — DuckDB is cognitive tooling, ripgrep is execution tooling. Williams' LFA is cognitive architecture for projects. Koe's "train AI on frameworks from great marketers" is cognitive tooling for brand strategy. <strong>Cognitive tooling gaps cannot be fixed by working harder inside the execution layer.</strong> This is a new concept not fully named in any of the three sources.</p>
+    </div>
+    <div class="thread">
+      <div class="thread-n">6</div>
+      <div class="thread-label">Context as Value Creation</div>
+      <h4>The richer and more precise the context you give AI, the higher the quality ceiling of what it can produce.</h4>
+      <p>Derosiaux: The agent works best when its environment is fully configured. Koe: <strong>"Chat with expert content rather than asking a general AI's opinion. AI works best when you know what you want."</strong> Our prior work: Claude chose the Holmes sentence about stretching minds because it knew Irvine's context. Context is not convenience. Context is the mechanism of quality. This is the operational argument for LOG_ON's Cultural Bridge Tech thesis.</p>
+    </div>
+  </div>
+</div>
+
+<!-- RECOMMENDATIONS -->
+<div class="rec-section">
+<div class="rec-inner">
+
+  <div class="rec-heading">
+    <div class="eye">LOG_ON Recommendations — Derived From All Sources</div>
+    <h2>What This Means<br/>For <em>You</em>, Specifically</h2>
+    <p>These are not generic insights. They are mapped to LOG_ON's actual position: one-person agency, agentic systems architect, AI safety researcher, African cognitive infrastructure advocate.</p>
+  </div>
+
+  <div class="rec-grid">
+
+    <div class="rec" data-n="1">
+      <div class="rec-domain">From Williams + Prior Work</div>
+      <h4>Build LOG_ON's LFA Before the Next Proposal</h4>
+      <p>You have a research agenda (African cognitive sovereignty), a commercial arm (LOG_ON Agency), and a content operation (essays, write-ups). These are three separate outputs. <strong>You do not yet have a publicly documented logic chain showing how all three connect to one impact.</strong></p>
+      <p>Before the next client pitch or grant application: map the LFA. Impact: African cognitive sovereignty. Outcomes: measurable shifts in how frontier LLMs represent African reasoning. Outputs: AgentBridge Africa, Cultural Bridge Tech toolkit, PARA, LISTNER, essay series. Inputs: your time, your research, your infrastructure.</p>
+      <div class="rec-action">ACTION → Write the LFA in one page. Every proposal, article, and pitch becomes easier when you can drop clients into a logic chain that was already coherent.</div>
+    </div>
+
+    <div class="rec" data-n="2">
+      <div class="rec-domain">From Derosiaux + Koe</div>
+      <h4>Audit Your Agent Environment Before You Build More Agents</h4>
+      <p>You build agentic systems — AgentBridge Africa, GigPilot, SafeChain MVP, Claude-in-Claude architectures. Each of those agents is currently operating in an epistemic environment you may not have fully documented.</p>
+      <p>Run the Derosiaux audit on each system: ask your agents what they need. But more critically, run the Sigl audit: <strong>what architectural constraints are your agents violating because they are undocumented?</strong> Find the CLAUDE.md equivalent for every system in your stack.</p>
+      <div class="rec-action">ACTION → For each active agent project: 30-minute audit. What does it believe? What constraints is it operating without? Document before the next sprint.</div>
+    </div>
+
+    <div class="rec" data-n="3">
+      <div class="rec-domain">From Koe · LOG_ON Brand</div>
+      <h4>LOG_ON Has the Brand. Now It Needs the Offer Stack.</h4>
+      <p>Koe's Brand + Content + Offer framework applied to LOG_ON: Brand — already strong. Cross-disciplinary African AI researcher, systems architect, 25-year oil and gas background. Content — essays, write-ups, prior work. Strong.</p>
+      <p><strong>Offer — fragmented.</strong> You have projects but not a coherent, purchasable offer stack. A $500 cultural bias audit. A $2,000 agent environment review. A $5,000 research brief. A $15,000 interpretability consulting engagement. Map the ladder. Trust is the moat — you have it. You need to monetise the moat.</p>
+      <div class="rec-action">ACTION → Define 3 offer tiers this week. One service entry point under $1,000. One mid-tier engagement. One premium research/consulting offer. Build landing page copy using Koe's avatar + offer + copy sequence.</div>
+    </div>
+
+    <div class="rec" data-n="4">
+      <div class="rec-domain">From All Three Sources</div>
+      <h4>The Content Waterfall Is Already There. Deploy It.</h4>
+      <p>Koe's content waterfall: one newsletter/essay → YouTube → podcast → short posts → carousels. You are producing essay-level content — "Whose Intelligence Is This?", the Agent Onboarding piece. You are not yet systematically converting that long-form into content ecosystem reach.</p>
+      <p><strong>Every essay you have written is a YouTube script waiting to be recorded. Every section is a thread. Every framework diagram is a carousel.</strong> The content exists. The distribution multiplier is not running.</p>
+      <div class="rec-action">ACTION → Take the "Whose Intelligence Is This?" essay. Convert to 5 LinkedIn threads, 2 YouTube scripts, 1 podcast episode outline. Run the waterfall once to prove the system works.</div>
+    </div>
+
+    <div class="rec" data-n="5">
+      <div class="rec-domain">From Derosiaux + Prior AI Work</div>
+      <h4>Build the Cognitive Tooling Layer for African AI Research</h4>
+      <p>Derosiaux's DuckDB insight: some tools don't make you faster — they change what questions you can answer. For African AI research, the cognitive tooling gap is the Proverb Activation Library, the cross-lingual sparse autoencoder setup, and the African-language NER benchmark.</p>
+      <p>Without these, every research question you ask requires a workaround that consumes context, introduces error, and degrades the quality of what you can reason about. <strong>The cognitive tooling IS the research infrastructure.</strong> Build it before the next paper proposal.</p>
+      <div class="rec-action">ACTION → Identify the 3 highest-priority cognitive tooling gaps in your African AI research stack. One of these becomes the next grant-fundable deliverable.</div>
+    </div>
+
+    <div class="rec" data-n="6">
+      <div class="rec-domain">From Koe · Highest Leverage</div>
+      <h4>Stop Using AI to Think FOR You. Use It to Think WITH You.</h4>
+      <p>Koe's sharpest line: <strong>"Most people are burning money watching AI produce something mediocre because they don't know what good looks like."</strong> The entire LOG_ON thesis is the same point at civilisational scale: an AI trained on other people's epistemology cannot think well in your context, no matter how sophisticated it becomes.</p>
+      <p>But this applies locally too. Your best outputs — these essays, the grant proposals, the copywriting analysis — happen when you direct Claude with precision, push back, and refine. Not when you ask it to generate and accept the output.</p>
+      <div class="rec-action">ACTION → For every AI-assisted output going forward: define what "good" looks like before you prompt. Use the LFA. Set the direction. Then execute — with AI as the accelerator, not the driver.</div>
+    </div>
+
+  </div>
+
+  <!-- FULL WIDTH STRATEGIC RECOMMENDATION -->
+  <div class="rec-full">
+    <h4>The Master Recommendation: <em>LOG_ON as the Direction Infrastructure for African AI</em></h4>
+    <div class="rf-grid">
+      <div class="rf-item">
+        <strong>The Positioning</strong>
+        <p>Williams shows that most organisations skip the systems layer and go straight to execution. Koe shows that most one-person operators don't know what good looks like before they prompt. These two failures combine into a massive market gap: <strong>someone needs to build the direction infrastructure for African AI deployment</strong> — the systems layer, the cognitive tooling, the epistemic environment that makes AI work for African contexts. That is LOG_ON's actual product.</p>
+      </div>
+      <div class="rf-item">
+        <strong>The Offer</strong>
+        <p>Not "we build agents." Not "we research African NLP." The offer is: <strong>we define the systems layer that makes your AI work — for African organisations, African contexts, African futures.</strong> Cultural bias audit. Agent environment design. CLAUDE.md architecture for African institutional values. LFA mapping for AI-driven projects. This is the offer stack that nobody else can sell because nobody else has the cross-disciplinary positioning to build it credibly.</p>
+      </div>
+      <div class="rf-item">
+        <strong>The Moat</strong>
+        <p>Koe's moat is trust. Williams' moat is systems competence. Derosiaux's moat is knowing what the agent needs before it breaks. LOG_ON's moat is all three, stacked: <strong>25 years of systems-level operational experience + African cognitive AI research + agentic architecture + the only public body of work connecting these three domains.</strong> The essays are not content marketing. They are the moat being built in public, one argument at a time.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+</div><!-- map-area -->
+
+<!-- FOOTER -->
+<footer class="foot">
+  <span class="foot-brand">LOG_ON</span>
+  <span class="foot-text">Mind Map Synthesis · 3 Sources · April 2026 · Lagos, Nigeria</span>
+  <span class="foot-text">Williams · Derosiaux · Koe · Prior LOG_ON Work</span>
+</footer>
+
+</body>
+</html>
