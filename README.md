@@ -1,5 +1,8 @@
 # LOG_ON — Direction Infrastructure for African AI
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-TanStack%20Start-blue)]()
+[![Status](https://img.shields.io/badge/Status-strategy%20%26%20delivery-green)]()
+
 **Business-facing strategy, research, and execution layer for applied AI work in African contexts.**
 
 This repository packages positioning, research papers, strategy materials, and an execution command centre. It demonstrates how technical AI systems (including AgentBridge) are turned into practical, communicable solutions.
@@ -41,3 +44,8 @@ Not a substitute for demonstrating agent runtime or tool-execution behavior (see
 ## Limitations
 
 Strongest as evidence of the business-facing and organizational side of AI work. Technical depth for agent systems lives in the companion AgentBridge repository.
+
+## Visual assets to add
+
+1. Screenshot of the strategy deck or execution centre.
+2. Social preview image (1280×640).
