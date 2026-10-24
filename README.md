@@ -1,31 +1,43 @@
-# LOG_ON — Direction infrastructure for African AI
+# LOG_ON — Direction Infrastructure for African AI
 
-Lagos-based practice site: offer stack, action brief, mind map, essays, **downloadable research papers**, execution command centre, and the 22-slide strategy deck.
+**Business-facing strategy, research, and execution layer for applied AI work in African contexts.**
 
-## Pages
+This repository packages positioning, research papers, strategy materials, and an execution command centre. It demonstrates how technical AI systems (including AgentBridge) are turned into practical, communicable solutions.
 
-| Path | What |
-|---|---|
-| `/` | Positioning, offers, research streams, paper library teaser |
-| `/brief` | LFA + six recommendations + 30-day calendar |
-| `/map` | Direction Problem synthesis (Williams · Derosiaux · Koe) |
-| `/essay` | Agent onboarding essay |
-| `/papers` | Full library with original-file downloads |
-| `/execute` | Checklists, CLAUDE.md, outreach DMs |
-| `/contact` | Enquiry form |
+---
 
-## Downloads
+## What problem does this solve?
 
-Originals live in `public/papers/`:
+AI engineering roles increasingly require translating technical capability into business outcomes, implementation plans, and stakeholder-ready materials. LOG_ON Direction provides the strategy, research, and delivery organization layer that sits alongside agent runtimes.
 
-- Strategy deck: `LOG_ON-Direction-Infrastructure.pptx`
-- Essays, study protocols, Schmidt proposal, SAE analysis, AgentBridge spec, outreach scripts
+## What is implemented
 
-## Stack
+- Positioning and service offers
+- Action brief and implementation recommendations
+- Research papers and technical materials (downloadable)
+- Execution command centre with checklists and outreach scripts
+- Strategy presentation
+- Modern React / TanStack Start application architecture
 
-TanStack Start · React 19 · Tailwind v4 · Zustand (execute checkboxes)
+## Architecture / stack
 
-```
+TanStack Start · React · Tailwind CSS · TypeScript
+
+Key pages include positioning, brief, research library, execution centre, and contact.
+
+## What a reviewer can run
+
+```bash
 npm install
 npm run dev
 ```
+
+## Portfolio value
+
+Evidence of product thinking, AI strategy, and delivery organization.  
+Best used as supporting material for Scale Army, M-KOPA AI Operations, and consulting-oriented AI implementation roles.  
+Not a substitute for demonstrating agent runtime or tool-execution behavior (see AgentBridge Africa for that).
+
+## Limitations
+
+Strongest as evidence of the business-facing and organizational side of AI work. Technical depth for agent systems lives in the companion AgentBridge repository.
